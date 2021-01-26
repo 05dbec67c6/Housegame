@@ -26,7 +26,7 @@ fun open(userInput: String) {
                 }
                 kitchenDoorToHallway -> {
                     openItem.open = true
-                    println("112You open the other door. It leads into the hallway.")
+                    println("[You open the other door. It leads into the hallway.")
                     availableRooms.add(hallway)
                 }
                 hallwayDoor -> {
