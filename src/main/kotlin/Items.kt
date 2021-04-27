@@ -8,6 +8,7 @@ data class Item(
     var open: Boolean = false,
     var locked: Boolean = false
 )
+
 // CellarItems
 val cellarStone = Item("stone", "[It is an ordinary stone, the size of your fist.]", cellar, true)
 val cellarKey = Item("rusty key", "[A rusty key. It's rusty.]", cellar, true, hidden = true)
@@ -15,6 +16,7 @@ val cellarChair = Item("chair", "[An old chair. It hasn't been used for a long t
 var cellarBox = Item("box", "[An old box made of wood that has been rotting for a long time. It is closed.]", cellar, openable = true)
 var cellarDoor = Item("metal door", "[An old door made of metal.]", cellar, openable = true, locked = true)
 val cellarPaper = Item("paper", "[The paper reads: 'Who is a good boy? Wuff, Warf.']", cellar, pickable = true, hidden = true)
+
 // KitchenItems
 var kitchenCupboard = Item("cupboard", "[It is a big cupboard with glass windows. Beside the usual kitchen stuff, you see a silver key.]", kitchen,openable = true)
 var kitchenCellarDoor = Item("metal door", "[The other side of the metal door.]", kitchen)

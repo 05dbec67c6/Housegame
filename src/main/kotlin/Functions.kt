@@ -1,7 +1,9 @@
 fun open(userInput: String) {
     val openItem: Item? = sumOfItems.firstOrNull { userInput == "open ${it.name}" }
     when {
-        ((openItem != null && openItem.room == currentRoom && openItem.openable) && !openItem.open) && !openItem.locked -> {
+        ((openItem != null && openItem.room == currentRoom && openItem.openable)
+                && !openItem.open)
+                && !openItem.locked -> {
             when (openItem) {
                 cellarDoor -> {
                     openItem.open = true
@@ -49,7 +51,7 @@ fun use(userInput: String) {
     if (useItem1 != null) {
         println("[With what?]")
         val userInputUse = readLine()
-        val useItem2: Item? = sumOfItems.firstOrNull { userInput == it.name }
+        val useItem2: Item? = sumOfItems.firstOrNull { userInputUse == it.name }
         when {
             useItem1 == cellarKey && useItem2 == cellarDoor && !cellarKey.hidden && cellarKey in inventory -> {
                 println("[You unlock the ${cellarDoor.name}.]")
@@ -82,7 +84,8 @@ fun use(userInput: String) {
                 println("[You cut open the cushion. Inside is a piece of paper.]")
                 cellarPaper.hidden = false
             }
-            else -> println("[You can't use the ${useItem1.name} with the $userInputUse, yet.]")
+            else -> println("[You can't use the ${useItem1.name} with the $userInputUse, yet.]" +
+                    "$useItem2, $cellarDoor")
         }
 
     } else println("[You can't $userInput.]")
@@ -167,7 +170,7 @@ fun inventory() {
 }
 
 fun help() {
-    println(
+    println (
         "[Use the following commands to make your way through the game:]" +
                 "\n['look' - gives you a description of the room you are in]" +
                 "\n['look at [item]' - gives you a description of an item in the room or in your inventory]" +
@@ -177,9 +180,9 @@ fun help() {
                 "\n['go to [room]' - let you change between rooms]" +
                 "\n['use [item] (with) [item]']" +
                 "\n['rooms' - gives you a list of the rooms you can go to.]" +
-                "\n['talk to [entity]' - starts a conversation.]"
-    )
-}
+                "\n['talk to [entity]' - starts a conversation.]")
+    }
+
 
 fun look() {
     print(currentRoom.description)
